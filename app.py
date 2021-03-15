@@ -9,6 +9,8 @@ import logging as logger
 import json
 from json import JSONEncoder
 
+# json Encoder for datatime
+
 
 class CustomEncoder(JSONEncoder):
     def default(self, obj):
