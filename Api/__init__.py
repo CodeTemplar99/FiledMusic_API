@@ -4,15 +4,15 @@ from app import getSong, createSong, updateSong, deleteSong
 
 restserver = Api(music_app)
 # get song route
-restserver.add_resource(getSong, "/api/service/song/<int:songId>")
+restserver.add_resource(getSong, "/api/song/<int:songId>")
 
 # create song route
-restserver.add_resource(createSong, "/api/service/create")
+restserver.add_resource(createSong, "/api/create")
 
 
 # update song route
-restserver.add_resource(updateSong, "/api/service/mp3/<int:songId>")
+restserver.add_resource(updateSong, "/api/mp3/<int:songId>")
 
 
 # delete song route
-restserver.add_resource(deleteSong, "/api/service/mp3/<int:songId>")
+restserver.add_resource(deleteSong, "/api/mp3/<int:songId>")
