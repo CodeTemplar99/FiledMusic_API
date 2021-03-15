@@ -35,36 +35,19 @@ if __name__ == '__main__':
     music_app.run(host="0.0.0.0", port="9000",
                   debug=True, use_reloader=True)
 
-logger.basicConfig(level="DEBUG")
-
-
-music_app = Flask(__name__)
-
-# mongodb conection
-client = MongoClient(
-    "mongodb+srv://Codetemplar99:musicdb1234@musicdb.cigak.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
-db = client.songdb
-collection = db["song"]
-
-
-if __name__ == '__main__':
-    logger.debug("Starting Music API")
-    from Api import *
-    music_app.run(host="0.0.0.0", port="9000",
-                  debug=True, use_reloader=True)
-
-
+logger.basicConfig(level="DEBUG")  # debug on terminal
 # create a song
+
+
 class createSong(Resource):
     def post(self):
-        try:
-            song = {"audioFileType": ".mp3", "_id": db.song.find().count(
-            ) + 1, "audioFileMetadata": {
-                "name": "Billie Jeans.mp3",  "duration": int(400), "uploaded_time":  datetime.datetime.now()}}
-            collection.insert_one(song)
-            return json.loads(json.dumps(song, indent=4, cls=CustomEncoder))
-        except:
-            print("Internal Server error")
+        # try:
+        song = {"audioFileType": ".mp3", "_id": db.song.find().count() + 1, "audioFileMetadata": {
+            "name": "Lost Children.mp3",  "duration": int(400), "uploaded_time":  datetime.datetime.now()}}
+        collection.insert_one(song)
+        return json.loads(json.dumps(song, indent=4, cls=CustomEncoder))
+        # except:
+        # print("Internal Server error")
 
 
 class updateSong(Resource):
