@@ -5,6 +5,7 @@ In partial fulfilment of the requirements for a developer position
 started 14-03-21 
 completed 16-03-21 18:44 WAT
 
+NB: the db was created for this test, that explains the exposure of the password
 '''
 
 
